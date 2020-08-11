@@ -28,3 +28,9 @@ h1 > span {
   font-size: 2.4rem;
   font-weight: 500;
 }
+
+h2 {
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
