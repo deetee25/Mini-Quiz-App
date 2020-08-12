@@ -52,3 +52,7 @@ h3 {
   margin: 0 auto;
   padding: 2rem;
 }
+
+.mainDiv > * {
+  width: 100%;
+}
