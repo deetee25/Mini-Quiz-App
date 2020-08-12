@@ -104,3 +104,9 @@ h3 {
   box-shadow: none;
   transform: none;
 }
+
+/* FORMS */
+form {
+  width: 100%;
+  display: flex;
+}
