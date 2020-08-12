@@ -9,9 +9,26 @@
 </head>
 <body>
     <div class="mainDiv">
-    <div id="game" class="justify-center flex-column hidden">
-        <p id="loadText" class="hud-prefix">Question</p>
-    </div>
-    </div>
-</body>
+      <div id="spinner"></div>
+      <div id="game" class="justify-center flex-column hidden">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="loadText" class="hud-prefix">
+              Question
+            </p>
+            <div id="loadBar">
+              <div id="loadBarFull"></div>
+            </div>
+          </div>
+          <div id="hud-item">
+            <p class="hud-prefix">
+              Score
+            </p>
+            <h1 class="hud-main-text" id="score">
+              0
+            </h1>
+          </div>
+        </div>
+        
+  </body>
 </html>
