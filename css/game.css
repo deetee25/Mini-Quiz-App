@@ -6,3 +6,10 @@
   border: 0.1rem solid rgba(255, 99, 71, 0.5);
   background-color: white;
 }
+
+.option-mainDiv:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 99, 71, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
