@@ -94,7 +94,13 @@ h3 {
 
 .button:hover {
   cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 99, 71, 0.5);
   transform: translateY(-0.1rem);
   transition: transform 150ms;
+}
+
+.button[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
