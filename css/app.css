@@ -56,3 +56,8 @@ h3 {
 .mainDiv > * {
   width: 100%;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
