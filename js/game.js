@@ -1,5 +1,10 @@
 const ques = document.getElementById('ques');
-const options = Array.from(document.getElementsByClassName('option-text'));
+const options = Array.from(document.getElementsByClassName('option-text')); //options are multiple so they are converted into array and fetching via class name.
+const loadText = document.getElementById('loadText');
+const scoreText = document.getElementById('score');
+const loadBarFull = document.getElementById('loadBarFull');
+const spinner = document.getElementById('spinner');
+const game = document.getElementById('game');
 
 let currentques = {};
 let acceptingAnswers = false;
@@ -8,6 +13,7 @@ let quesCounter = 0;
 let availableQuesions = []; 
 let quess = [];
 
+//fetching quess via json fetch API
 fetch(
     'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple'
 )
@@ -20,12 +26,12 @@ fetch(
                 ques: loadedques.question,
             };
 
-            const answeroptions = [...loadedques.incorrect_answers]; // copying all the wrong answers in an array to make all the options to show.
-            formattedques.answer = Math.floor(Math.random() * 4) + 1; // getting right answer at a random position from 0-4.
+            const answeroptions = [...loadedques.incorrect_answers]; 
+            formattedques.answer = Math.floor(Math.random() * 4) + 1; 
             answeroptions.splice(
                 formattedques.answer - 1,
                 0,
-                loadedques.correct_answer //putting the right answer in the selected position
+                loadedques.correct_answer 
             );
 
             answeroptions.forEach((option, index) => {
@@ -41,10 +47,11 @@ fetch(
         console.error(err);
     });
 
-    const right_BONUS = 10;
-    const MAX_quesS = 3;
 
-    startGame = () => {
+const right_BONUS = 10;
+const MAX_quesS = 3;
+
+startGame = () => {
     quesCounter = 0;
     score = 0;
     availableQuesions = [...quess];
@@ -56,7 +63,7 @@ fetch(
 getNewques = () => {
     if (availableQuesions.length === 0 || quesCounter >= MAX_quesS) {
         localStorage.setItem('mostRecentScore', score);
-       
+        
         return window.location.assign('end.html');
     }
     quesCounter++;
@@ -64,7 +71,7 @@ getNewques = () => {
     
     loadBarFull.style.width = `${(quesCounter / MAX_quesS) * 100}%`;
 
-const quesIndex = Math.floor(Math.random() * availableQuesions.length); 
+    const quesIndex = Math.floor(Math.random() * availableQuesions.length); 
     currentques = availableQuesions[quesIndex];
     ques.innerHTML = currentques.ques;
     
@@ -75,3 +82,33 @@ const quesIndex = Math.floor(Math.random() * availableQuesions.length);
 
     availableQuesions.splice(quesIndex, 1);
     acceptingAnswers = true;
+};
+
+options.forEach((option) => {
+    option.addEventListener('click', (e) => {
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
+        const selectedoption = e.target;
+        const selectedAnswer = selectedoption.dataset['number'];
+
+        const classToApply =
+            selectedAnswer == currentques.answer ? 'right' : 'wrong';
+
+        if (classToApply === 'right') {
+            incrementScore(right_BONUS);
+        }
+
+        selectedoption.parentElement.classList.add(classToApply);
+
+        setTimeout(() => {
+            selectedoption.parentElement.classList.remove(classToApply);
+            getNewques();
+        }, 1000);
+    });
+});
+
+incrementScore = (num) => {
+    score += num;
+    scoreText.innerText = score;
+};
