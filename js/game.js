@@ -40,3 +40,15 @@ fetch(
     .catch((err) => {
         console.error(err);
     });
+
+    const right_BONUS = 10;
+    const MAX_quesS = 3;
+
+    startGame = () => {
+    quesCounter = 0;
+    score = 0;
+    availableQuesions = [...quess];
+    getNewques();
+    game.classList.remove('hidden');
+    spinner.classList.add('hidden');
+};
