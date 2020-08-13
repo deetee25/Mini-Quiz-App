@@ -52,3 +52,12 @@ fetch(
     game.classList.remove('hidden');
     spinner.classList.add('hidden');
 };
+
+const quesIndex = Math.floor(Math.random() * availableQuesions.length); //generating a random number from 1 - number of available questions
+    currentques = availableQuesions[quesIndex];
+    ques.innerHTML = currentques.ques;
+    //putting the options in the options section or divs of HTML
+    options.forEach((option) => {
+        const number = option.dataset['number'];
+        option.innerHTML = currentques['option' + number];
+    });
