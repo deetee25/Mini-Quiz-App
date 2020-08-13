@@ -56,12 +56,12 @@ fetch(
 getNewques = () => {
     if (availableQuesions.length === 0 || quesCounter >= MAX_quesS) {
         localStorage.setItem('mostRecentScore', score);
-        //go to the end page
+       
         return window.location.assign('end.html');
     }
     quesCounter++;
     loadText.innerText = `Question ${quesCounter}/${MAX_quesS}`;
-    //Update the load bar
+    
     loadBarFull.style.width = `${(quesCounter / MAX_quesS) * 100}%`;
 
 const quesIndex = Math.floor(Math.random() * availableQuesions.length); 
@@ -72,3 +72,6 @@ const quesIndex = Math.floor(Math.random() * availableQuesions.length);
         const number = option.dataset['number'];
         option.innerHTML = currentques['option' + number];
     });
+
+    availableQuesions.splice(quesIndex, 1);
+    acceptingAnswers = true;
