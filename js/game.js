@@ -1,3 +1,3 @@
 const ques = document.getElementById('ques');
 const options = Array.from(document.getElementsByClassName('option-text'));
-console.log("option-text");
+console.log(options);
