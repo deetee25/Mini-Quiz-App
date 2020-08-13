@@ -1,1 +1,1 @@
-console.log("Hello");
+const ques = document.getElementById('ques');
