@@ -13,3 +13,14 @@
   transform: translateY(-0.1rem);
   transition: transform 150ms;
 }
+
+.option-prefix {
+  padding: 1.5rem 2.5rem;
+  background-color: #FF6347;
+  color: white;
+}
+
+.option-text {
+  padding: 1.5rem;
+  width: 100%;
+}
