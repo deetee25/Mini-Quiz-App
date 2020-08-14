@@ -1,5 +1,5 @@
 const ques = document.getElementById('ques');
-const options = Array.from(document.getElementsByClassName('option-text')); //options are multiple so they are converted into array and fetching via class name.
+const options = Array.from(document.getElementsByClassName('option-text')); 
 const loadText = document.getElementById('loadText');
 const scoreText = document.getElementById('score');
 const loadBarFull = document.getElementById('loadBarFull');
@@ -47,7 +47,7 @@ fetch(
         console.error(err);
     });
 
-
+//CONSTANTS
 const right_BONUS = 10;
 const MAX_quesS = 3;
 

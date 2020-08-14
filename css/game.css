@@ -46,3 +46,16 @@
 .hud-main-text {
   text-align: center;
 }
+
+#loadBar {
+  width: 20rem;
+  height: 4rem;
+  border: 0.3rem solid tomato;
+  margin-top: 1.5rem;
+}
+
+#loadBarFull {
+  height: 3.4rem;
+  background-color: tomato;
+  width: 0%;
+}
