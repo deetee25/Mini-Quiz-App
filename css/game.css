@@ -32,3 +32,8 @@
 .wrong {
   background-color: #dc3545;
 }
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
